@@ -7,12 +7,15 @@ Created on Sat Nov 28 22:08:19 2020
 import gui
 import hardware
 import time
+import math
 
 SECONDS_PER_MILILITER = 0.1
+WASHING_TIME = 5
 
 queue = []
 pump_running = False
 pump_stop_time = 0
+
 
 # ------ Ingredients -----------------
 
@@ -40,12 +43,12 @@ def main(ui):
     if ui.stop_was_pressed():
         # stop all the punps, reset the queue
         print("stop button was pressed")
-        hardware.pumpes[1].turn_off()
-        hardware.pumpes[2].turn_off()
-        hardware.pumpes[3].turn_off()
-        hardware.pumpes[4].turn_off()
+        for key, pump in hardware.pumpes.items():
+            pump.turn_off()
         queue = []
-        pump_stop_time = time.time()
+        ui.washing = False
+        washing_stop_time = pow(10,10)
+        return
 
     if ui.button_was_pressed(1):  # <--------- 1. When button 1 was pressed
         print("button 1 was pressed")
@@ -84,6 +87,15 @@ def main(ui):
             pump_stop_time = time.time() + time_to_run
             hardware.pumpes[pump_running].turn_on()
             print("Pump {} runs for {}s".format(pump_running, time_to_run))
+
+    # washing
+    if ui.washing:
+        print("Start Washing, press stop to end")
+        ui.washing = False
+        for key, pump in hardware.pumpes.items():
+            pump.turn_on()
+
+
 
 
 if __name__ == "__main__":

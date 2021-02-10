@@ -5,53 +5,77 @@ Created on Sat Nov 28 21:06:02 2020
 @author: micha
 """
 import tkinter as tk
+import tkinter.font
 import main
 import hardware
+from config import *
 
-DEBUG = False # show debug messages if true
+DEBUG = True # show debug messages if true
 SIMULATION = True # shows simulations for the pumps
 
 
 class GUI:
     def __init__(self):
         self.window = tk.Tk()
+        self.window.grid_rowconfigure(0, weight=1) # this and the next line allow filling a grid layout
+        self.window.grid_columnconfigure(0, weight=1)
         self.build_gui()
         self.window.after(200, self.task)
         self.window.after(1000, self.update_pump_simulation)
         self.button_pressed = [False]*8
         self.button_stop_pressed = False
+        self.washing = False
+
         self.window.mainloop()
 
 
     def build_gui(self):
         # background color
-        self.window.configure(bg="#571F4E") # window background
+        self.window.configure(bg=GUI_WINDOW_BG) # window background
+        self.button_font = tk.font.Font(family='Helvetica', size=20, weight='bold')
+
 
         #create widgets
         # buttons
-        button1 = tk.Button(self.window, text="Drink 1", command=lambda: self.on_button_pressed(1), bg="#A2FAA3", width=20, height=8)
-        button2 = tk.Button(self.window, text="Drink 2", command=lambda: self.on_button_pressed(2), bg="#92C9B1", width=20, height=8)
-        button3 = tk.Button(self.window, text="Drink 3", command=lambda: self.on_button_pressed(3), bg="#4F759B", width=20, height=8)
-        button4 = tk.Button(self.window, text="Drink 4", command=lambda: self.on_button_pressed(4), bg="#5D5179", width=20, height=8)
-        button5 = tk.Button(self.window, text="Drink 5", command=lambda: self.on_button_pressed(5), bg="#A2FAA3", width=20, height=8)
-        button6 = tk.Button(self.window, text="Drink 6", command=lambda: self.on_button_pressed(6), bg="#92C9B1", width=20, height=8)
-        button7 = tk.Button(self.window, text="Drink 7", command=lambda: self.on_button_pressed(7), bg="#4F759B", width=20, height=8)
-        button8 = tk.Button(self.window, text="Drink 8", command=lambda: self.on_button_pressed(8), bg="#5D5179", width=20, height=8)
-        button_stop = tk.Button(self.window, text ="Stop", command=self.on_button_stop_pressed, bg="#999999", width=20, height=8)
+        button1 = tk.Button(self.window, text=GUI_B1_TEXT, command=lambda: self.on_button_pressed(1), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button2 = tk.Button(self.window, text=GUI_B2_TEXT, command=lambda: self.on_button_pressed(2), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button3 = tk.Button(self.window, text=GUI_B3_TEXT, command=lambda: self.on_button_pressed(3), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button4 = tk.Button(self.window, text=GUI_B4_TEXT, command=lambda: self.on_button_pressed(4), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button5 = tk.Button(self.window, text=GUI_B5_TEXT, command=lambda: self.on_button_pressed(5), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button6 = tk.Button(self.window, text=GUI_B6_TEXT, command=lambda: self.on_button_pressed(6), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button7 = tk.Button(self.window, text=GUI_B7_TEXT, command=lambda: self.on_button_pressed(7), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button8 = tk.Button(self.window, text=GUI_B8_TEXT, command=lambda: self.on_button_pressed(8), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button9 = tk.Button(self.window, text=GUI_B9_TEXT, command=lambda: self.on_button_pressed(9), bg=GUI_BUTTON_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+
+        button_stop = tk.Button(self.window, text =GUI_B_STOP_TEXT, command=self.on_button_stop_pressed, bg=GUI_BUTTON_STOP_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        button_wash = tk.Button(self.window, text =GUI_B_WASH_TEXT, command=self.on_button_wash_pressed, bg=GUI_BUTTON_WASH_BG_COLOR, width=GUI_BUTTON_WIDTH, height=GUI_BUTTON_HEIGHT)
+        
+        button1['font'] = self.button_font
+        button2['font'] = self.button_font
+        button3['font'] = self.button_font
+        button4['font'] = self.button_font
+        button5['font'] = self.button_font
+        button6['font'] = self.button_font
+        button7['font'] = self.button_font
+        button8['font'] = self.button_font
+        button9['font'] = self.button_font
+        button_stop['font'] = self.button_font
+        button_wash['font'] = self.button_font
+
         #pump simulation
-        frame = tk.Frame(self.window, bg="#571F4E")
-        self.pump_label1 = tk.Label(frame,text="Pump 1", bg="#FF0000", width=10)
-        self.pump_label2 = tk.Label(frame,text="Pump 2", bg="#FF0000", width=10)
-        self.pump_label3 = tk.Label(frame,text="Pump 3", bg="#FF0000", width=10)
-        self.pump_label4 = tk.Label(frame,text="Pump 4", bg="#FF0000", width=10)
-        self.pump_label5 = tk.Label(frame,text="Pump 5", bg="#FF0000", width=10)
-        self.pump_label6 = tk.Label(frame,text="Pump 6", bg="#FF0000", width=10)
-        self.pump_label7 = tk.Label(frame,text="Pump 7", bg="#FF0000", width=10)
-        self.pump_label8 = tk.Label(frame,text="Pump 8", bg="#FF0000", width=10)
-        self.pump_label9 = tk.Label(frame,text="Pump 9", bg="#FF0000", width=10)
-        self.pump_label10 = tk.Label(frame,text="Pump 10", bg="#FF0000", width=10)
-        self.pump_label11 = tk.Label(frame,text="Pump 11", bg="#FF0000", width=10)
-        self.pump_label12 = tk.Label(frame,text="Pump 12", bg="#FF0000", width=10)
+        self.frame = tk.Frame(self.window, bg=GUI_SIM_BG)
+        self.pump_label1 = tk.Label(self.frame, text="Pump 1", bg="#FF0000", width=10)
+        self.pump_label2 = tk.Label(self.frame, text="Pump 2", bg="#FF0000", width=10)
+        self.pump_label3 = tk.Label(self.frame, text="Pump 3", bg="#FF0000", width=10)
+        self.pump_label4 = tk.Label(self.frame, text="Pump 4", bg="#FF0000", width=10)
+        self.pump_label5 = tk.Label(self.frame, text="Pump 5", bg="#FF0000", width=10)
+        self.pump_label6 = tk.Label(self.frame, text="Pump 6", bg="#FF0000", width=10)
+        self.pump_label7 = tk.Label(self.frame, text="Pump 7", bg="#FF0000", width=10)
+        self.pump_label8 = tk.Label(self.frame, text="Pump 8", bg="#FF0000", width=10)
+        self.pump_label9 = tk.Label(self.frame, text="Pump 9", bg="#FF0000", width=10)
+        self.pump_label10 = tk.Label(self.frame, text="Pump 10", bg="#FF0000", width=10)
+        self.pump_label11 = tk.Label(self.frame, text="Pump 11", bg="#FF0000", width=10)
+        self.pump_label12 = tk.Label(self.frame, text="Pump 12", bg="#FF0000", width=10)
         self.text_time_left = tk.StringVar()
         self.text_time_left.set("all off")
         self.pump_run_time_label = tk.Label(self.window,textvariable=self.text_time_left , bg="#571F4E")
@@ -67,23 +91,74 @@ class GUI:
         self.pump_label10.pack()
         self.pump_label11.pack()
         self.pump_label12.pack()
+        
+        # Information Text
+        self.additional_info_frame = tk.Frame(self.window, bg=ADDITIONAL_INFO_BG)
+        self.info_title_text = tk.StringVar()
+        self.info_title_label = tk.Label(self.additional_info_frame, textvariable=self.info_title_text, anchor="nw", justify=tk.LEFT)
+        self.info_title_label.config(font=("Courier", 44, "bold"))
+        self.info_title_label.pack()
+        self.info_title_text.set(DEFAULT_INFORMATION['Title'])
+        
+        self.info_content_text = tk.StringVar()
+        self.info_content_label = tk.Label(self.additional_info_frame, textvariable=self.info_content_text, anchor="nw", justify=tk.LEFT)
+        self.info_content_label.pack(side = tk.LEFT, expand=1, fill=tk.BOTH)
+        self.info_content_text.set(DEFAULT_INFORMATION['Text'])
+
+
+
+        
+        #Switches
+        self.wash_switch_var = tk.IntVar()
+        self.activate_switch_var = tk.IntVar()
+        self.simulation_switch_var = tk.IntVar()
+
+        switch_frame = tk.Frame(self.window, bg=GUI_SWITCHES_BACKGROUND)
+        wash_switch = tk.Checkbutton(switch_frame, text=GUI_CHECKBOX_WASH_TEXT, variable=self.wash_switch_var)
+        deactivate_switch = tk.Checkbutton(switch_frame, text=GUI_CHECKBOX_ACTIVATE_TEXT, variable = self.activate_switch_var)
+        simulation_switch = tk.Checkbutton(switch_frame, text=GUI_CHECKBOX_SIMULATION_TEXT, variable = self.simulation_switch_var)
+
+        
+        wash_switch.grid(row=0, column=0, padx='5', pady='5', sticky='ew')
+        deactivate_switch.grid(row=1, column=0, padx='5', pady='5', sticky='ew')
+        simulation_switch.grid(row=2, column=0, padx='5', pady='5', sticky='ew')
+
+
+        
         # grid layout
         button1.grid(row=0, column=0, padx='5', pady='5', sticky='ew')
-        button2.grid(row=1, column=0, padx='5', pady='5', sticky='ew')
-        button3.grid(row=1, column=1, padx='5', pady='5', sticky='ew')
-        button4.grid(row=0, column=1, padx='5', pady='5', sticky='ew')
-        button5.grid(row=2, column=0, padx='5', pady='5', sticky='ew')
-        button6.grid(row=3, column=0, padx='5', pady='5', sticky='ew')
-        button7.grid(row=2, column=1, padx='5', pady='5', sticky='ew')
-        button8.grid(row=3, column=1, padx='5', pady='5', sticky='ew')
-        button_stop.grid(row=3, column=3, padx='5', pady='5', sticky='ew')
-        frame.grid(row=0, column=3, padx='5', pady='5', sticky='ew', rowspan=2)
-        self.pump_run_time_label.grid(row=2, column=3, sticky='ew')
+        button2.grid(row=0, column=1, padx='5', pady='5', sticky='ew')
+        button3.grid(row=0, column=2, padx='5', pady='5', sticky='ew')
+        button4.grid(row=1, column=0, padx='5', pady='5', sticky='ew')
+        button5.grid(row=1, column=1, padx='5', pady='5', sticky='ew')
+        button6.grid(row=1, column=2, padx='5', pady='5', sticky='ew')
+        button7.grid(row=2, column=0, padx='5', pady='5', sticky='ew')
+        button8.grid(row=2, column=1, padx='5', pady='5', sticky='ew')
+        button9.grid(row=2, column=2, padx='5', pady='5', sticky='ew')
+
+        button_stop.grid(row=2, column=3, padx='5', pady='5', sticky='ew')
+        button_wash.grid(row=2, column=4, padx='5', pady='5', sticky='ew')
+        self.frame.grid(row=0, column=5, padx='5', pady='5', sticky='ew', rowspan=2)
+        switch_frame.grid(row=2, column=5, padx='5', pady='5', sticky='ew')
+        #self.pump_run_time_label.grid(row=0, column=3, sticky='ew')
+        self.additional_info_frame.grid(row=0, column=3, rowspan=2, columnspan=2, sticky="nsew", padx='5', pady='5')
 
     def on_button_pressed(self, i):
-        self.button_pressed[i-1] = True
-        if DEBUG:
-            print("Button {} pressed".format(i))
+        self.info_content_text.set(DRINK_INFORMATION[i]['Text'])
+        self.info_title_text.set(DRINK_INFORMATION[i]['Title'])
+        if self.activate_switch_var.get():
+            self.button_pressed[i-1] = True
+
+            if DEBUG:
+                print("Button {} pressed".format(i))
+                print("Wash: ", self.wash_switch_var.get())
+                print("Active: ", self.activate_switch_var.get())
+    
+    def on_button_wash_pressed(self):
+        if self.wash_switch_var.get():
+            self.washing = True
+        else:
+            tk.messagebox.showinfo(GUI_WASH_WINDOW_NAME, GUI_WASH_WARNING_TEXT)
 
     def on_button_stop_pressed(self):
         self.button_stop_pressed = True
@@ -149,6 +224,11 @@ class GUI:
             self.pump_label12.configure(bg="#00FF00")
         else:
             self.pump_label12.configure(bg="#FF0000")
+            
+        if (not self.simulation_switch_var.get()):
+            self.frame.grid_remove()
+        else:
+            self.frame.grid()
 
         self.window.after(1000, self.update_pump_simulation)
 

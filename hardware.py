@@ -5,6 +5,8 @@ Created on Sat Nov 28 23:57:37 2020
 @author: micha
 """
 
+import time
+
 
 class Pump:
     def __init__(self, name):
@@ -23,6 +25,14 @@ class Pump:
         else:
             negator = "not "
         return "{} is {} running".format(self.name, negator)
+
+def wash():
+    for key, pump in pumpes.items():
+        pump.turn_on()
+    time.sleep(10)
+    for key, pump in pumpes:
+        pump.turn_off()
+
 
 
 pumpes = {1: Pump("Pump 1"),
