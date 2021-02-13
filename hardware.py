@@ -44,12 +44,9 @@ def wash():
     time.sleep(10)
     for key, pump in pumpes:
         pump.turn_off()
-        
-def init():
-    GPIO.setmode(GPIO.BCM) #name pins by gpio number (not pin number on the board)
-    
 
 
+GPIO.setmode(GPIO.BCM) #name pins by gpio number (not pin number on the board)    
 
 pumpes = {1: Pump("Pump 1", gpio=23, sim=False),
           2: Pump("Pump 2"),
