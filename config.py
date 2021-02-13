@@ -50,6 +50,23 @@ DRINK_INFORMATION = {1:{'Title': "Drink 1", 'Text': "This is a placeholder for t
                      9:{'Title': "Drink 2", 'Text': "Text 2"}
                      }
 
+#GPIO pins format: pump_nr : gpio number
+# !!! the indicated gpio number is the name of the gpio and NOT THE HARDWARE PIN NUMBER
+GPIO_PIN_NUMBERS = {
+    1: 14,
+    2: 15,
+    3: 18,
+    4: 23,
+    5: 24,
+    6: 25,
+    7: 8,
+    8: 7,
+    9: 1,
+    10: 12,
+    11: 16,
+    12: 20
+    }
+
 
 
 

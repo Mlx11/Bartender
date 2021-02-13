@@ -4,7 +4,7 @@ Created on Sat Nov 28 23:57:37 2020
 
 @author: micha
 """
-
+from config import *
 import time
 import RPi.GPIO as GPIO
 
@@ -48,15 +48,15 @@ def wash():
 
 GPIO.setmode(GPIO.BCM) #name pins by gpio number (not pin number on the board)    
 
-pumpes = {1: Pump("Pump 1", gpio=23, sim=False),
-          2: Pump("Pump 2"),
-          3: Pump("Pump 3"),
-          4: Pump("Pump 4"),
-          5: Pump("Pump 5"),
-          6: Pump("Pump 6"),
-          7: Pump("Pump 7"),
-          8: Pump("Pump 8"),
-          9: Pump("Pump 9"),
-          10: Pump("Pump 10"),
-          11: Pump("Pump 11"),
-          12: Pump("Pump 12")}
+pumpes = {1: Pump("Pump 1", gpio=GPIO_PIN_NUMBERS[1], sim=False),
+          2: Pump("Pump 2", gpio=GPIO_PIN_NUMBERS[2], sim=False),
+          3: Pump("Pump 3", gpio=GPIO_PIN_NUMBERS[3], sim=False),
+          4: Pump("Pump 4", gpio=GPIO_PIN_NUMBERS[4], sim=False),
+          5: Pump("Pump 5", gpio=GPIO_PIN_NUMBERS[5], sim=False),
+          6: Pump("Pump 6", gpio=GPIO_PIN_NUMBERS[6], sim=False),
+          7: Pump("Pump 7", gpio=GPIO_PIN_NUMBERS[7], sim=False),
+          8: Pump("Pump 8", gpio=GPIO_PIN_NUMBERS[8], sim=False),
+          9: Pump("Pump 9", gpio=GPIO_PIN_NUMBERS[9], sim=False),
+          10: Pump("Pump 10", gpio=GPIO_PIN_NUMBERS[10], sim=False),
+          11: Pump("Pump 11", gpio=GPIO_PIN_NUMBERS[11], sim=False),
+          12: Pump("Pump 12", gpio=GPIO_PIN_NUMBERS[12], sim=False)}
