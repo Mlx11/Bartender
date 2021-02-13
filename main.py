@@ -8,6 +8,8 @@ import gui
 import hardware
 import time
 import math
+import traceback
+import sys
 
 SECONDS_PER_MILILITER = 0.1
 WASHING_TIME = 5
@@ -99,4 +101,14 @@ def main(ui):
 
 
 if __name__ == "__main__":
-    ui = gui.GUI()
+    try:
+        ui = gui.GUI()
+    except Exception:
+        traceback.print_stack()
+    finally: 
+        hardware.cleanup()
+    
+    
+    
+    
+    

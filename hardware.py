@@ -44,6 +44,9 @@ def wash():
     time.sleep(10)
     for key, pump in pumpes:
         pump.turn_off()
+        
+def cleanup():
+    GPIO.cleanup() # cleanup all GPIO
 
 
 GPIO.setmode(GPIO.BCM) #name pins by gpio number (not pin number on the board)    
