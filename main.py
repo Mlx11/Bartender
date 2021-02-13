@@ -99,4 +99,5 @@ def main(ui):
 
 
 if __name__ == "__main__":
+    hardware.init()
     ui = gui.GUI()
