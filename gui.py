@@ -32,7 +32,7 @@ class GUI:
     def build_gui(self):
         # background color
         self.window.configure(bg=GUI_WINDOW_BG) # window background
-        self.button_font = tk.font.Font(family='Helvetica', size=20, weight='bold')
+        self.button_font = tk.font.Font(family='Helvetica', size=12, weight='bold')
 
 
         #create widgets
@@ -96,7 +96,7 @@ class GUI:
         self.additional_info_frame = tk.Frame(self.window, bg=ADDITIONAL_INFO_BG)
         self.info_title_text = tk.StringVar()
         self.info_title_label = tk.Label(self.additional_info_frame, textvariable=self.info_title_text, anchor="nw", justify=tk.LEFT)
-        self.info_title_label.config(font=("Courier", 44, "bold"))
+        self.info_title_label.config(font=("Courier", 30, "bold"))
         self.info_title_label.pack()
         self.info_title_text.set(DEFAULT_INFORMATION['Title'])
         
