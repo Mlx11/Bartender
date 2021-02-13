@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
 # Button Text
-GUI_B1_TEXT = "Drink1"
-GUI_B2_TEXT = "Drink2"
-GUI_B3_TEXT = "Drink3"
-GUI_B4_TEXT = "Drink4"
-GUI_B5_TEXT = "Drink5"
-GUI_B6_TEXT = "Drink6"
-GUI_B7_TEXT = "Drink7"
-GUI_B8_TEXT = "Drink8"
-GUI_B9_TEXT = "Drink9"
+GUI_B1_TEXT = "Mojito"
+GUI_B2_TEXT = "Strong Bull"
+GUI_B3_TEXT = "Margarita"
+GUI_B4_TEXT = "Californication"
+GUI_B5_TEXT = "Long Island Iced Tea"
+GUI_B6_TEXT = "Vodka mit OJ"
+GUI_B7_TEXT = "Gummibärli"
+GUI_B8_TEXT = "Gin Tonic"
+GUI_B9_TEXT = "Rum Cola"
 GUI_B_STOP_TEXT = "STOP"
 GUI_B_WASH_TEXT = "Wash"
 GUI_CHECKBOX_WASH_TEXT = "Wash"
@@ -39,15 +39,15 @@ DEFAULT_INFORMATION = {
     'Title': "Welcome",
     'Text': """ > Put your glass in the bartender \n > Choose your drink \n > Add a toping"""
     }
-DRINK_INFORMATION = {1:{'Title': "Drink 1", 'Text': "This is a placeholder for the description \n This tests a new line"},
-                     2:{'Title': "Drink 2", 'Text': "Text 2"},
-                     3:{'Title': "Drink 2", 'Text': "Text 2"},
-                     4:{'Title': "Drink 2", 'Text': "Text 2"},
-                     5:{'Title': "Drink 2", 'Text': "Text 2"},
-                     6:{'Title': "Drink 2", 'Text': "Text 2"},
-                     7:{'Title': "Drink 2", 'Text': "Text 2"},
-                     8:{'Title': "Drink 2", 'Text': "Text 2"},
-                     9:{'Title': "Drink 2", 'Text': "Text 2"}
+DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "This is a placeholder for the description \n This tests a new line"},
+                     2:{'Title': "Strong Bull", 'Text': "Text 2"},
+                     3:{'Title': "Margarita", 'Text': "Not a pizza"},
+                     4:{'Title': "Californication", 'Text': "Text 4"},
+                     5:{'Title': "DLong Island Iced Tea", 'Text': "Text 5"},
+                     6:{'Title': "Vodka mit OJ", 'Text': "Text 6"},
+                     7:{'Title': "Gummibärli", 'Text': "Text 7"},
+                     8:{'Title': "Gin Tonic", 'Text': "Text 9"},
+                     9:{'Title': "Rum Cola", 'Text': "Text 9"}
                      }
 
 #GPIO pins format: pump_nr : gpio number
