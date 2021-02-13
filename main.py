@@ -11,7 +11,7 @@ import math
 import traceback
 import sys
 
-SECONDS_PER_MILILITER = 0.04
+SECONDS_PER_MILILITER = 0.025
 CONSTANT_START_TIME = 1.5
 
 queue = []
@@ -51,6 +51,12 @@ def add_i9(ml):# <-------Energy Drink
 
 def add_i10(ml):# <-------Tonic Water
     queue.append({"pump": 10, "volume": ml}) 
+    
+def add_i11(ml):# <-------Energy Drink
+    queue.append({"pump": 11, "volume": ml}) 
+
+def add_i12(ml):# <-------Tonic Water
+    queue.append({"pump": 12, "volume": ml}) 
     
 # ---------- Drinks -----------------
 
@@ -158,10 +164,20 @@ def main(ui):
 
     # washing
     if ui.washing:
-        print("Start Washing, press stop to end")
+        print("Start Washing")
         ui.washing = False
-        for key, pump in hardware.pumpes.items():
-            pump.turn_on()
+        add_i1(500)
+        add_i2(500)
+        add_i3(500)
+        add_i4(500)
+        add_i5(500)
+        add_i6(500)
+        add_i7(500)
+        add_i8(500)
+        add_i9(500)
+        add_i10(500)
+        add_i11(500)
+        add_i12(500)
 
 
 

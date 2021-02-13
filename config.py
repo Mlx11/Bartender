@@ -25,12 +25,12 @@ GUI_BUTTON_STOP_BG_COLOR = "#FF0000"
 GUI_BUTTON_WASH_BG_COLOR = "#888888"
 GUI_SIM_BG = "#CC0000"
 GUI_WINDOW_BG = "#000000"
-ADDITIONAL_INFO_BG = "#FFFFFF"
+ADDITIONAL_INFO_BG = "#CCCCCC"
 GUI_SWITCHES_BACKGROUND = "#000000"
 
 
 # Size
-GUI_BUTTON_HEIGHT = 3
+GUI_BUTTON_HEIGHT = 4
 GUI_BUTTON_WIDTH = 10
 
 # Information Text
@@ -40,14 +40,14 @@ DEFAULT_INFORMATION = {
     'Text': """ > Put your glass in the bartender \n > Choose your drink \n > Add a toping"""
     }
 DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "This is a placeholder for the description \n This tests a new line"},
-                     2:{'Title': "Strong Bull", 'Text': "Text 2"},
+                     2:{'Title': "Strong Bull", 'Text': "Like Michel"},
                      3:{'Title': "Margarita", 'Text': "Not a pizza"},
-                     4:{'Title': "Californication", 'Text': "Text 4"},
-                     5:{'Title': "DLong Island \n Iced Tea", 'Text': "Text 5"},
-                     6:{'Title': "Vodka mit OJ", 'Text': "Text 6"},
-                     7:{'Title': "Gummibärli", 'Text': "Text 7"},
-                     8:{'Title': "Gin Tonic", 'Text': "Text 9"},
-                     9:{'Title': "Rum Cola", 'Text': "Text 9"}
+                     4:{'Title': "Californi-\ncation", 'Text': "Text 4"},
+                     5:{'Title': "Long Island\nIced Tea", 'Text': "Imagine a long island with an \n ice tea"},
+                     6:{'Title': "Vodka mit OJ", 'Text': "Orange juice is healthy,\n that's all we care."},
+                     7:{'Title': "Gummibärli", 'Text': "Nothing more to say!"},
+                     8:{'Title': "Gin Tonic", 'Text': "Gin & Tonic - \n Is there something more to say?"},
+                     9:{'Title': "Rum Cola", 'Text': "I don't know what to write :("}
                      }
 
 #GPIO pins format: pump_nr : gpio number
