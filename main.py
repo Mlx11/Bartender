@@ -11,8 +11,8 @@ import math
 import traceback
 import sys
 
-SECONDS_PER_MILILITER = 0.1
-WASHING_TIME = 5
+SECONDS_PER_MILILITER = 0.032
+CONSTANT_START_TIME = 0.7
 
 queue = []
 pump_running = False
@@ -22,21 +22,80 @@ pump_stop_time = 0
 # ------ Ingredients -----------------
 
 
-def add_i1(ml):
-    queue.append({"pump": 1, "volume": ml})  # <----------- 4. ingredient 1 is added to the queue - you don't have to do more
+def add_i1(ml):# <-------Vodka
+    queue.append({"pump": 1, "volume": ml}) 
 
+def add_i2(ml):# <-------Weisser Rum
+    queue.append({"pump": 2, "volume": ml})
 
-def add_i8(ml):
-    queue.append({"pump": 8, "volume": ml})  # <----------- 5. ingredient 1 is added to the queue - you don't have to do more
+def add_i3(ml):# <-------Tequila
+    queue.append({"pump": 3, "volume": ml})
 
+def add_i4(ml):# <-------Triple Sec
+    queue.append({"pump": 4, "volume": ml})
 
+def add_i5(ml):# <-------Gin
+    queue.append({"pump": 5, "volume": ml})
+
+def add_i6(ml):# <-------Cola
+    queue.append({"pump": 6, "volume": ml})
+
+def add_i7(ml):# <-------OJ
+    queue.append({"pump": 7, "volume": ml})
+
+def add_i8(ml):# <-------Cointreau
+    queue.append({"pump": 8, "volume": ml}) 
+
+def add_i9(ml):# <-------Energy Drink
+    queue.append({"pump": 9, "volume": ml}) 
+
+def add_i10(ml):# <-------Tonic Water
+    queue.append({"pump": 10, "volume": ml}) 
+    
 # ---------- Drinks -----------------
 
 
-def make_Drink1():
-    add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added
-    add_i8(100)  # <------------- 4. 50ml of ingedient 8 is added
+def make_Drink1(): #Mojito
+    add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added     
 
+def make_Drink3(): #Margarita
+    add_i8(10)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i3(30)
+    
+def make_Drink4(): #Californication
+    add_i1(15)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i5(15)
+    add_i2(15)
+    add_i3(15)
+    add_i7(70)
+
+def make_Drink5(): #Long Island Iced Tea
+    add_i2(20)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i1(20)
+    add_i5(20)
+    add_i3(20)
+    add_i4(20)
+    add_i6(50)
+    
+def make_Drink6(): #Vodka mit OJ
+    add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i7(100)
+    
+def make_Drink7(): #Gummibärli
+    add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i9(100)
+    
+def make_Drink8(): #Gin Tonic
+    add_i5(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i10(100)
+    
+def make_Drink9(): #Rum Cola
+    add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i6(100)
+    
+def make_Drink10(): #Strong Bull
+    add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i9(100)
 
 # ---------- main -------------------
 
@@ -57,21 +116,28 @@ def main(ui):
         make_Drink1()  # <-------------------- 2. the function make_drink1 is called
     elif ui.button_was_pressed(2):
         print("button 2 was pressed")
-        hardware.pumpes[2].turn_on()
+        make_Drink1() # !!!!!!!!!!!!!!!!!!!¨not drink 2
     elif ui.button_was_pressed(3):
         print("button 3 was pressed")
-        hardware.pumpes[3].turn_on()
+        make_Drink3()
     elif ui.button_was_pressed(4):
         print("button 4 was pressed")
-        hardware.pumpes[4].turn_on()
+        make_Drink4()
     elif ui.button_was_pressed(5):
         print("button 5 was pressed")
+        make_Drink5()
     elif ui.button_was_pressed(6):
         print("button 6 was pressed")
+        make_Drink6()
     elif ui.button_was_pressed(7):
         print("button 7 was pressed")
+        make_Drink7()
     elif ui.button_was_pressed(8):
         print("button 8 was pressed")
+        make_Drink8()
+    elif ui.button_was_pressed(9):
+        print("button 8 was pressed")
+        make_Drink9()
 
     # check the queue, stop/start pumps
     if pump_running:
@@ -85,7 +151,7 @@ def main(ui):
             next_element = queue[0]
             queue = queue[1:]
             pump_running = next_element["pump"]
-            time_to_run = next_element["volume"]*SECONDS_PER_MILILITER
+            time_to_run = next_element["volume"]*SECONDS_PER_MILILITER + CONSTANT_START_TIME
             pump_stop_time = time.time() + time_to_run
             hardware.pumpes[pump_running].turn_on()
             print("Pump {} runs for {}s".format(pump_running, time_to_run))

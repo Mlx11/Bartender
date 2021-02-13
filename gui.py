@@ -22,7 +22,7 @@ class GUI:
         self.build_gui()
         self.window.after(200, self.task)
         self.window.after(1000, self.update_pump_simulation)
-        self.button_pressed = [False]*8
+        self.button_pressed = [False]*9
         self.button_stop_pressed = False
         self.washing = False
 
