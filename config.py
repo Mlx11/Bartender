@@ -4,9 +4,9 @@
 GUI_B1_TEXT = "Mojito"
 GUI_B2_TEXT = "Strong Bull"
 GUI_B3_TEXT = "Margarita"
-GUI_B4_TEXT = "Californication"
-GUI_B5_TEXT = "Long Island Iced Tea"
-GUI_B6_TEXT = "Vodka mit OJ"
+GUI_B4_TEXT = "Californi- \n cation"
+GUI_B5_TEXT = "Long Island"
+GUI_B6_TEXT = "Vodka OJ"
 GUI_B7_TEXT = "Gummibärli"
 GUI_B8_TEXT = "Gin Tonic"
 GUI_B9_TEXT = "Rum Cola"
@@ -31,7 +31,7 @@ GUI_SWITCHES_BACKGROUND = "#000000"
 
 # Size
 GUI_BUTTON_HEIGHT = 3
-GUI_BUTTON_WIDTH = 6
+GUI_BUTTON_WIDTH = 10
 
 # Information Text
 
@@ -43,7 +43,7 @@ DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "This is a placeholder for th
                      2:{'Title': "Strong Bull", 'Text': "Text 2"},
                      3:{'Title': "Margarita", 'Text': "Not a pizza"},
                      4:{'Title': "Californication", 'Text': "Text 4"},
-                     5:{'Title': "DLong Island Iced Tea", 'Text': "Text 5"},
+                     5:{'Title': "DLong Island \n Iced Tea", 'Text': "Text 5"},
                      6:{'Title': "Vodka mit OJ", 'Text': "Text 6"},
                      7:{'Title': "Gummibärli", 'Text': "Text 7"},
                      8:{'Title': "Gin Tonic", 'Text': "Text 9"},
