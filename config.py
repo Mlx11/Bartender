@@ -46,7 +46,7 @@ DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "Toppings:mint,lime juice,lim
                      5:{'Title': "Long Island\nIced Tea", 'Text': "Toppings:ice"},
                      6:{'Title': "Vodka mit OJ", 'Text': "Orange juice is healthy,\n that's all we care."},
                      7:{'Title': "Gummibärli", 'Text': "vodka,energy"},
-                     8:{'Title': "Gin Tonic", 'Text': "gin,tonic water},
+                     8:{'Title': "Gin Tonic", 'Text': "gin,tonic water"},
                      9:{'Title': "Rum Cola", 'Text': "rum, cola"}
                      }
 
