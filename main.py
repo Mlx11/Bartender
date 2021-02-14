@@ -11,8 +11,8 @@ import math
 import traceback
 import sys
 
-SECONDS_PER_MILILITER = 0.035
-CONSTANT_START_TIME = 1.3
+SECONDS_PER_MILILITER = 0.02
+CONSTANT_START_TIME = 1
 
 queue = []
 pump_running = False
