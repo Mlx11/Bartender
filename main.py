@@ -85,7 +85,7 @@ def make_Drink5(): #Long Island Iced Tea
     
 def make_Drink6(): #Vodka mit OJ
     add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
-    add_i7(250) # <-------------Attention 150ml raised
+    add_i7(350) # <-------------Attention 150ml raised
     
 def make_Drink7(): #Gummibärli
     add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
@@ -93,7 +93,7 @@ def make_Drink7(): #Gummibärli
     
 def make_Drink8(): #Gin Tonic
     add_i5(50)  # <------------- 3. 50ml of ingedient 1 is added 
-    add_i10(250) # <-----------Attention 150ml raised
+    add_i10(325) # <-----------Attention 150ml raised
     
 def make_Drink9(): #Rum Cola
     add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added 
