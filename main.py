@@ -11,8 +11,8 @@ import math
 import traceback
 import sys
 
-SECONDS_PER_MILILITER = 0.025
-CONSTANT_START_TIME = 1.5
+SECONDS_PER_MILILITER = 0.035
+CONSTANT_START_TIME = 1.3
 
 queue = []
 pump_running = False
@@ -85,7 +85,7 @@ def make_Drink5(): #Long Island Iced Tea
     
 def make_Drink6(): #Vodka mit OJ
     add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
-    add_i7(100)
+    add_i7(150) # <-------------Attention 50ml raised
     
 def make_Drink7(): #Gummibärli
     add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
@@ -93,7 +93,7 @@ def make_Drink7(): #Gummibärli
     
 def make_Drink8(): #Gin Tonic
     add_i5(50)  # <------------- 3. 50ml of ingedient 1 is added 
-    add_i10(100)
+    add_i10(150) # <-----------Attention 50ml raised
     
 def make_Drink9(): #Rum Cola
     add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added 

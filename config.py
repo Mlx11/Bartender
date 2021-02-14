@@ -37,7 +37,7 @@ GUI_BUTTON_WIDTH = 10
 
 DEFAULT_INFORMATION = {
     'Title': "Welcome",
-    'Text': """ > Put your glass in the bartender \n > Choose your drink \n > Add a toping"""
+    'Text': """ > Put your glass in the bartender \n > Choose your drink \n > Add a topping"""
     }
 DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "This is a placeholder for the description \n This tests a new line"},
                      2:{'Title': "Strong Bull", 'Text': "Like Michel"},
