@@ -39,15 +39,15 @@ DEFAULT_INFORMATION = {
     'Title': "Welcome",
     'Text': """ > Put your glass in the bartender \n > Choose your drink \n > Add a topping"""
     }
-DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "This is a placeholder for the description \n This tests a new line"},
-                     2:{'Title': "Strong Bull", 'Text': "Like Michel"},
-                     3:{'Title': "Margarita", 'Text': "Not a pizza"},
-                     4:{'Title': "Californi-\ncation", 'Text': "Text 4"},
-                     5:{'Title': "Long Island\nIced Tea", 'Text': "Imagine a long island with an \n ice tea"},
+DRINK_INFORMATION = {1:{'Title': "Mojito", 'Text': "Toppings:mint,lime juice,lime, \n brown sugar,ice"},
+                     2:{'Title': "Strong Bull", 'Text': "Topping:ice"},
+                     3:{'Title': "Margarita", 'Text': "Toppings:ice"},
+                     4:{'Title': "Californi-\ncation", 'Text': "Toppings:lime juice,ice"},
+                     5:{'Title': "Long Island\nIced Tea", 'Text': "Toppings:ice"},
                      6:{'Title': "Vodka mit OJ", 'Text': "Orange juice is healthy,\n that's all we care."},
-                     7:{'Title': "Gummibärli", 'Text': "Nothing more to say!"},
-                     8:{'Title': "Gin Tonic", 'Text': "Gin & Tonic - \n Is there something more to say?"},
-                     9:{'Title': "Rum Cola", 'Text': "I don't know what to write :("}
+                     7:{'Title': "Gummibärli", 'Text': "vodka,energy"},
+                     8:{'Title': "Gin Tonic", 'Text': "gin,tonic water},
+                     9:{'Title': "Rum Cola", 'Text': "rum, cola"}
                      }
 
 #GPIO pins format: pump_nr : gpio number
