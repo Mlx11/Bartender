@@ -85,7 +85,7 @@ def make_Drink5(): #Long Island Iced Tea
     
 def make_Drink6(): #Vodka mit OJ
     add_i1(50)  
-    add_i7(300) # <-------------Attention raised
+    add_i7(220) # <-------------Attention raised
     
 def make_Drink7(): #Gummibärli
     add_i1(50)  
