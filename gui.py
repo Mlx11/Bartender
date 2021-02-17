@@ -2,7 +2,7 @@
 """
 Created on Sat Nov 28 21:06:02 2020
 
-@author: micha
+@author: michel & raphael
 """
 import tkinter as tk
 import tkinter.font

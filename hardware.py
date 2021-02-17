@@ -2,7 +2,7 @@
 """
 Created on Sat Nov 28 23:57:37 2020
 
-@author: micha
+@author: michel & raphael
 """
 from config import *
 import time

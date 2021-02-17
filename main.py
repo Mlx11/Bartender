@@ -2,7 +2,7 @@
 """
 Created on Sat Nov 28 22:08:19 2020
 
-@author: micha
+@author: michel & raphael
 """
 import gui
 import hardware
@@ -62,21 +62,21 @@ def add_i12(ml):# <-------Tonic Water
 
 
 def make_Drink1(): #Mojito
-    add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added     
+    add_i2(50)      
 
 def make_Drink3(): #Margarita
-    add_i8(10)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i8(10)  
     add_i3(30)
     
 def make_Drink4(): #Californication
-    add_i1(15)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i1(15)  
     add_i5(15)
     add_i2(15)
     add_i3(15)
     add_i7(70)
 
 def make_Drink5(): #Long Island Iced Tea
-    add_i2(20)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i2(20)  
     add_i1(20)
     add_i5(20)
     add_i3(20)
@@ -84,23 +84,23 @@ def make_Drink5(): #Long Island Iced Tea
     add_i6(80) # <-------30ml raised
     
 def make_Drink6(): #Vodka mit OJ
-    add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
-    add_i7(450) # <-------------Attention 150ml raised
+    add_i1(50)  
+    add_i7(300) # <-------------Attention raised
     
 def make_Drink7(): #Gummibärli
-    add_i1(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i1(50)  
     add_i9(100)
     
 def make_Drink8(): #Gin Tonic
-    add_i5(50)  # <------------- 3. 50ml of ingedient 1 is added 
-    add_i10(400) # <-----------Attention 150ml raised
+    add_i5(50)   
+    add_i10(280) # <-----------Attention raised
     
 def make_Drink9(): #Rum Cola
-    add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i2(50)  
     add_i6(130) # <-------------20ml raised
     
 def make_Drink10(): #Strong Bull
-    add_i2(50)  # <------------- 3. 50ml of ingedient 1 is added 
+    add_i2(50)  
     add_i9(100)
 
 # ---------- main -------------------
@@ -117,12 +117,12 @@ def main(ui):
         washing_stop_time = pow(10,10)
         return
 
-    if ui.button_was_pressed(1):  # <--------- 1. When button 1 was pressed
+    if ui.button_was_pressed(1): 
         print("button 1 was pressed")
-        make_Drink1()  # <-------------------- 2. the function make_drink1 is called
+        make_Drink1() 
     elif ui.button_was_pressed(2):
         print("button 2 was pressed")
-        make_Drink1() # !!!!!!!!!!!!!!!!!!!¨not drink 2
+        make_Drink1() # not drink 2
     elif ui.button_was_pressed(3):
         print("button 3 was pressed")
         make_Drink3()
